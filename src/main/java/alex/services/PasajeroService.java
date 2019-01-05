@@ -1,5 +1,7 @@
 package alex.services;
 
+import java.util.List;
+
 import alex.entity.Pasajero;
 
 public interface PasajeroService {
@@ -9,4 +11,6 @@ public interface PasajeroService {
 	 Pasajero findByDNI(int dni);
 	 
 	 int deleteById(int id);
+	 
+	 List<Pasajero> getPasajeros();
 }

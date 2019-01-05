@@ -124,6 +124,7 @@
 				<h3>Reservar Vuelo</h3>
 				<a href="altaVuelo" type="button"
 					class="btn btn-block btn-lg btn-primary"> Ir </a>
+					<h4>${Exito}</h4>
 			</div>
 			<div class="col-md-4">
 				<h3>Cancelar Reserva</h3>

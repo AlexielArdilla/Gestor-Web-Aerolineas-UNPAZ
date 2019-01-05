@@ -1,6 +1,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+   <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,26 +26,10 @@
 			    	<h3 class="panel-title">Admin LogIn</h3>
 			 	</div>
 			  	<div class="panel-body">
-			    	<form accept-charset="UTF-8" role="form" action="login" method="POST">
-                    <fieldset>
-			    	  	<div class="form-group">
-			    		    <input class="form-control" placeholder="User" name="user" type="text" required>
-			    		</div>
-			    		<div class="form-group">
-			    			<input class="form-control" placeholder="Password" name="password" type="password" value="" required>
-			    		</div>
-			    		<div class="checkbox">
-			    	    	<label>
-			    	    		<input name="remember" type="checkbox" value="Remember Me"> Remember Me
-			    	    	</label>
-			    	    </div>
-			    		<input class="btn btn-lg btn-success btn-block" type="submit" value="Login">
-			    	</fieldset>
-			      	</form>
-			    </div>
-			    <h4>user: Ale</h4>
-			    <h4>pass: qwerty</h4>
-			</div>
+			    <h3>No existe el user: <c:out value="${user}"></c:out></h3><br>
+			    <h3>Con el password: <c:out value="${password}"></c:out></h3>
+			   <br><a href="index.jsp" class="btn btn-info" name="vuelve_a_index" role="button">Volver</a>
+			    
 			<div class="col-sm-4">
 			 </div>
 		</div>

@@ -1,5 +1,7 @@
 package alex.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,6 +32,22 @@ public class UserServiceImpl implements UserService{
 	public User getUser(Integer id) {
 
 		return dao.findUser(id);
+	}
+
+
+
+	@Override
+	public User findUserByName(String nombre) {
+		
+		return dao.findUserByName(nombre);
+	}
+
+
+
+	@Override
+	public List<User> getUsers() {
+		
+		return dao.getUsers();
 	}
 
 }

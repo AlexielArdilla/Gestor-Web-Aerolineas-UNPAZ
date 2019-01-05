@@ -21,12 +21,13 @@ public class EquipajeDaoImpl implements EquipajeDao{
 	@Override
 	public List<Equipaje> findEquipajes() {
 		List <Equipaje> equipajes= new LinkedList<>();
-		
+		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		
 		try {
 			
+			con = MyConnection.getConnection();
 			ps = con.prepareStatement(
 					"select equipaje_vuelo_pasajero.id, equipaje_vuelo_pasajero.id_vuelo, "
 					+ "pasajero.nombre, equipaje_vuelo_pasajero.descripcion, "
@@ -48,22 +49,22 @@ public class EquipajeDaoImpl implements EquipajeDao{
 				equipajes.add(miEquipaje);
 				
 			}
-			
 				
 		} catch (SQLException e) {		
 			e.printStackTrace();
-		} finally {
+		}finally{
+			
 			try {
-				
-				ps.close();
 				rs.close();
+				ps.close();
 				con.close();
 			} catch (SQLException e) {
 
 				e.printStackTrace();
-			}										
-		}
-						
+			}
+			
+		}										
+				
 		return equipajes;
 	}
 

@@ -24,6 +24,19 @@
 <spring:url value="/resources/js/index.js" var="aloneJS" />
 <link href="${aloneJS}" rel="stylesheet" />
 
+ <script>
+     
+function confirmarCancelar() {
+		if (confirm("Está seguro que desea cancelar?") == true) {
+			document.location.href = '#';
+		}
+	}
+function confirmarFacturar() {
+	
+	return confirm("Está seguro de que desea facturar este vuelo?");
+}
+</script>
+
 </head>
 <body>
 <div>
@@ -74,20 +87,28 @@
  
  <div class="container-fluid">
 			 <h1>Facturación</h1>
+			 
 			 <div class="row">
 			 <div class="col-sm-4">
 			 </div>
 			 <div class="col-sm-4">
 			 
+			  <form action="facturacion" method="get" onSubmit="return confirmarFacturar()">
 			 <h3>Nombre y Apellido:</h3>
-			<h4><strong> Alejandro Gonzalo vera</strong></h4><br>
-			 <h3>Destino:</h3>
-			<h4><strong>Buenos aires /Mar del plata 2016-5-2</strong></h4><br>
-			  Costo: US$255<br><br>
-			 <form action="facturacion" method="get">
+			 <input type="text" class="form-control" id="nombre" name="nombre" value="<c:out value="${pasajero.nombre}"></c:out>" readonly="readonly">
+			<br>
+			 <h3>Origen:</h3>
+			  <input type="text" class="form-control" id="origen" name="origen" value="<c:out value="${vuelo.ciudad_origen}"></c:out>" readonly="readonly">
+			<br>
+			<h3>Destino:</h3>
+			 <input type="text" class="form-control" id="destino" name="destino" value="<c:out value="${vuelo.ciudad_destino}"></c:out>" readonly="readonly">
+			<br>
+			Costo:US$<br>
+			  <input type="text" class="form-control" id="costo" name="costo" value="255" readonly="readonly"><br><br>
+			
  
     <label for="nombre">Medio de pago:</label>
-    <select class="form-control" id="sel1" name="tarjeta">
+    <select class="form-control" id="tarjeta" name="tarjeta">
         <option>Visa</option>
         <option>American Express</option>
         <option>Maestro</option>
@@ -96,18 +117,19 @@
   
    <br />
     <label for="edad">Numero de tarjeta:</label>
-    <input type="text" class="form-control" id="edad" name="numTarjeta" required="">
+    <input type="text" class="form-control" id="numTarjeta" name="numTarjeta" maxlength="16" required="">
   
    <br />
       <label for="edad">Numero de seguridad:</label>
-    <input type="text" class="form-control" id="edad" name="numSeguridad" required="">
+    <input type="text" class="form-control" id="numSeguridad" name="numSeguridad" maxlength="3" required="">
       <br>
 	  
   <button type="submit" class="btn btn-default">Enviar</button>
-  &nbsp
-	<button class="btn btn-warning" type="reset">Reset</button>
-</form>
-			 
+   &nbsp
+  <a class="btn btn-danger" role="button" href="cancelar_facturacion?idPasajero=${pasajero.id}&idVueloPasajero=${vueloPasajero.id_pasajero}&idEquiVueloPasajero=${equipajeVueloPasajero.id}&idVuelo=${vuelo.id}" class="w3-btn w3-black">Cancelar facturacion</a>
+	
+  </form>
+ 
 			 </div>
 			 
 			

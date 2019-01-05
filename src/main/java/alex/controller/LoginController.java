@@ -1,5 +1,7 @@
 package alex.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -17,9 +19,25 @@ public class LoginController {
 	private UserService service;
 	
 	@RequestMapping(value = "login", method = RequestMethod.POST)
-	public String showPanelPage(@ModelAttribute("user") User user, ModelMap model) {
+	public String showPanelPage(@ModelAttribute("user") String user,@ModelAttribute("password") String password, ModelMap model) {
 		
-		return "panel";
+		List<User> misUsers = service.getUsers();
+		
+		for(User m: misUsers){
+			
+			if(user.equals(m.getName())&&password.equals(m.getPassword())){
+				
+				return "panel";
+			}
+			
+		}
+	   	
+			model.addAttribute("user", user);
+			model.addAttribute("password", password);
+			
+		  return "index2";	
+		
+		
 	}
 
 	public UserService getService() {

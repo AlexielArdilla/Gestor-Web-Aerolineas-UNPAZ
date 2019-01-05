@@ -24,6 +24,19 @@
 <spring:url value="/resources/js/index.js" var="aloneJS" />
 <link href="${aloneJS}" rel="stylesheet" />
 
+ <script>
+     
+function confirmarCancelar() {
+		if (confirm("Está seguro que desea cancelar?") == true) {
+			document.location.href = '#';
+		}
+	}
+function confirmarCrear() {
+	
+	return confirm("Está seguro de que desea reservar este vuelo?");
+}
+</script>
+
 </head>
 <body>
 <div>
@@ -78,17 +91,17 @@
 			 <div class="col-sm-3">
 			 </div>
 			 <div class="col-sm-6">
-			 
-			 <form action="altaPaso2" method="get">
+			 <c:out value="${error}"></c:out>
+			 <form action="altaPaso2" method="get" onSubmit="return confirmarCrear()">
  
-    <label for="nombre">Nombre y Apellido:</label>
+    <label for="nombre">Apellido y Nombre:</label>
     <input type="text" class="form-control" id="nombre" name="nomApel"required="">
   
    <br />
     <label for="edad">Edad:</label>
     <input type="text" class="form-control" id="edad" name="edad" required="">
   <br>
-  <label for="dni">DNI::</label>
+  <label for="dni">DNI:</label>
     <input type="text" class="form-control" id="edad" name="dni" required="">
   <br>
       <label for="sel2">Seleccione el vuelo</label>
@@ -101,7 +114,7 @@
     <label for="edad">Equipaje:</label>
     <input type="text" class="form-control" id="equipaje" name="equipaje" required="">
   <br />
-    <label for="edad">Peso:</label>
+    <label for="edad">Peso equipaje Kg:</label>
     <input type="text" class="form-control" id="peso" name="peso" required="">
   <br />
   

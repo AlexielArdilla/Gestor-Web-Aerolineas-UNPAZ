@@ -8,13 +8,19 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import alex.entity.Equipaje;
+import alex.entity.Equipaje_vuelo_pasajero;
 import alex.services.EquipajeService;
+import alex.services.Equipaje_vuelo_pasajeroService;
+import alex.services.PasajeroService;
 
 @Controller
 public class EquipajeController {
 
 	@Autowired
 	EquipajeService service;
+	@Autowired
+	PasajeroService servicePasajero;
+	
 
 	public EquipajeService getService() {
 		return service;

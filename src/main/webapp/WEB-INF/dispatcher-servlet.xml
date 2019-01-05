@@ -37,6 +37,9 @@
 				<value>alex.entity.Ciudad</value>
 				<value>alex.entity.Equipaje</value>
 				<value>alex.entity.Pasajero</value>
+				<value>alex.entity.Vuelo_pasajero</value>
+				<value>alex.entity.Equipaje_vuelo_pasajero</value>
+				<value>alex.entity.Facturacion</value>
 			</list>
 		</property>
 	</bean>

@@ -117,7 +117,7 @@ public class VueloDaoImpl implements VueloDao{
 	}
 	
 	@Override
-	public List<Vuelo> findVueloByDNI(int dni) {
+	public List<Vuelo> findVueloByDNI(int dni) {//Esta OK
 		List <Vuelo> vuelos= new LinkedList<>();
 		Connection con = null;
 		PreparedStatement ps = null;

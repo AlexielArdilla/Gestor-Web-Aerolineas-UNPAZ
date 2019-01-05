@@ -50,7 +50,7 @@
 										class="dropdown-item" href="getVuelos">Ver vuelos</a> <a
 										class="dropdown-item" href="getCiudades">Ver ciudades</a>
 									<div class="dropdown-divider"></div>
-									<a class="dropdown-item" href="#">Equipajes</a>
+									<a class="dropdown-item" href="getEquipajes">Equipajes</a>
 								</div></li>
 						</ul>
 						<form class="form-inline" action="byDni" method="get">
