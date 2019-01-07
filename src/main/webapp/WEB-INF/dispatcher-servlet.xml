@@ -40,6 +40,8 @@
 				<value>alex.entity.Vuelo_pasajero</value>
 				<value>alex.entity.Equipaje_vuelo_pasajero</value>
 				<value>alex.entity.Facturacion</value>
+				<value>alex.entity.Break</value>
+				
 			</list>
 		</property>
 	</bean>

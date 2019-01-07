@@ -23,9 +23,9 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<spring:url value="/resources/images/img_1.jpg" var="img_1" />
-<spring:url value="/resources/images/img_2.jpg" var="img_2" />
-<spring:url value="/resources/images/img_3.jpg" var="img_3" />
+<spring:url value="/resources/images/coffee_1.jpg" var="img_1" />
+<spring:url value="/resources/images/coffee_2.jpg" var="img_2" />
+<spring:url value="/resources/images/coffee_3.jpg" var="img_3" />
 <style>
 /* Make the image fully responsive */
 .carousel-inner img {
@@ -37,49 +37,45 @@
 
 </head>
 <body>
-
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-md-12">
-				<nav
-					class="navbar navbar-expand-lg navbar-light bg-light navbar-dark bg-dark">
+<div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-dark bg-dark">
 
 					<button class="navbar-toggler" type="button" data-toggle="collapse"
 						data-target="#bs-example-navbar-collapse-1">
 						<span class="navbar-toggler-icon"></span>
 					</button>
-					<a class="navbar-brand" href="panel">UNPAZ</a>
+					<a class="navbar-brand" href=#>UNPAZ</a>
 					<div class="collapse navbar-collapse"
 						id="bs-example-navbar-collapse-1">
 						<ul class="navbar-nav">
-							<li class="nav-item active"><a class="nav-link" href="panel">ABM
-									Vuelos <span class="sr-only">(current)</span>
+							<li class="nav-item active"><a class="nav-link" href="#">ABM Vuelos
+									<span class="sr-only">(current)</span>
 							</a></li>
-							<li class="nav-item"><a class="nav-link" href="index.jsp">Log-out</a></li>
+							<li class="nav-item"><a class="nav-link" href="#">Log-out</a></li>
 							<li class="nav-item dropdown"><a
-								class="nav-link dropdown-toggle" href="http://example.com"
-								id="navbarDropdownMenuLink" data-toggle="dropdown">Aviones y
-									vuelos</a>
+								class="nav-link dropdown-toggle" href="#"
+								id="navbarDropdownMenuLink" data-toggle="dropdown">Aviones y vuelos</a>
 								<div class="dropdown-menu"
 									aria-labelledby="navbarDropdownMenuLink">
-									<a class="dropdown-item" href="getAviones">Ver aviones</a> <a
-										class="dropdown-item" href="getVuelos">Ver vuelos</a> <a
-										class="dropdown-item" href="getCiudades">Ver ciudades</a>
+									<a class="dropdown-item" href="#">Ver aviones</a> <a
+										class="dropdown-item" href="#">Ver vuelos</a> <a
+										class="dropdown-item" href="#">Ver ciudades</a>
 									<div class="dropdown-divider"></div>
-									<a class="dropdown-item" href="getEquipajes">Equipajes</a>
+									<a class="dropdown-item" href="#">Equipajes</a>
 								</div></li>
 						</ul>
-						<form class="form-inline" action="byDni" method="get">
+						<form class="form-inline" action="#" method="get">
 							<input class="form-control mr-sm-2" type="text" name="dniPasajero" required="">
 							<button class="btn btn-primary my-2 my-sm-0" type="submit">
 								Pasajero por DNI</button>
 						</form>
 						<ul class="navbar-nav ml-md-auto">
-							<li class="nav-item active"><a class="nav-link" href="getVuelosExdEquipaje">Equipaje extra <span class="sr-only">(current)</span>
+							<li class="nav-item active"><a class="nav-link" href="#">Equipaje extra
+									<span class="sr-only">(current)</span>
 							</a></li>
 							<!-- Button trigger modal -->
 							<button type="button" class="btn btn-primary" data-toggle="modal"
-								data-target="#exampleModal">Coffee Break</button>
+								data-target="#">Coffee Break</button>
 
 							<!-- Modal -->
 						</ul>
@@ -120,43 +116,24 @@
 		</div>
 		<div class="row">
 			<div class="col-md-4">
-				<h3>Reservar Vuelo</h3>
-				<a href="altaVuelo" type="button"
-					class="btn btn-block btn-lg btn-primary"> Ir </a>
-					<h4>${Exito}</h4>
+				
 			</div>
 			<div class="col-md-4">
-				<h3>Cancelar Reserva</h3>
-				<a href="mostrar_baja"
-					class="btn btn-block btn-lg btn-danger"> Ir </a>
+				<h3>Terminar el Break?</h3>
+				<a href="terminar_Break"
+					class="btn btn-block btn-lg btn-warning"> Sí </a>
 			</div>
 			<div class="col-md-4">
-				<h3>Reporte de facturación</h3>
-				<a href="facturacionPage" class="btn btn-block btn-success btn-lg"> Ir </a>
+				
 			</div>
 		</div>
 	</div>
-	<!-- Modal -->
-	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-		aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">Coffee break</h5>
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body">Pedido de Break para múltiples
-					propósitos, Carga de datos, Baño, descanso</div>
-				<div class="modal-footer">
-					
-					<a href="pedir_break" type="button"
-					class="btn btn-primary">Comenzar break</a>
-				</div>
-			</div>
-		</div>
-	</div>
+
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+  
+
+    <script  src="${aloneJS}"></script>
+
 </body>
 </html>

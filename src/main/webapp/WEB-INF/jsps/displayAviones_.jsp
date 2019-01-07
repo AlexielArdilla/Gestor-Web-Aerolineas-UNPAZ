@@ -59,7 +59,7 @@
 								Pasajero por DNI</button>
 						</form>
 						<ul class="navbar-nav ml-md-auto">
-							<li class="nav-item active"><a class="nav-link" href="#">Equipaje extra
+							<li class="nav-item active"><a class="nav-link" href="getVuelosExdEquipaje">Equipaje extra
 									<span class="sr-only">(current)</span>
 							</a></li>
 							<!-- Button trigger modal -->
@@ -99,10 +99,6 @@
     </table>
   </div>
 </section>
-<div>
-<a href="registrationPage">Registrar avion</a>
-<br><br><a href="index.jsp">Inicio</a>
-</div>
 
 <!-- Modal -->
 	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
@@ -119,10 +115,8 @@
 				<div class="modal-body">Pedido de Break para múltiples
 					propósitos, Carga de datos, Baño, descanso</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary"
-						data-dismiss="modal">Fin Break</button>
-					<a href="index.jsp" type="button"
-					class="btn btn-primary"> LogOut </a>
+					<a href="pedir_break" type="button"
+					class="btn btn-primary">Comenzar break</a>
 				</div>
 			</div>
 		</div>

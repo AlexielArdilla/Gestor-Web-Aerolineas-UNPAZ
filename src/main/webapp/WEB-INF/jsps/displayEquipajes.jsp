@@ -59,7 +59,7 @@
 								Pasajero por DNI</button>
 						</form>
 						<ul class="navbar-nav ml-md-auto">
-							<li class="nav-item active"><a class="nav-link" href="#">Equipaje extra
+							<li class="nav-item active"><a class="nav-link" href="getVuelosExdEquipaje">Equipaje extra
 									<span class="sr-only">(current)</span>
 							</a></li>
 							<!-- Button trigger modal -->
@@ -74,6 +74,7 @@
   <section>
   <!--for demo wrap-->
   <h1>Listado de equipajes</h1>
+  <h3>En gris pasajeros excedidos de equipaje MAX 100KG</h3>
   <div class="tbl-header">
     <table cellpadding="0" cellspacing="0" border="0">
       <thead>
@@ -91,7 +92,14 @@
     <table cellpadding="0" cellspacing="0" border="0">
       <tbody>
       <c:forEach items="${equipajes}" var="equipaje">
+       <c:choose >
+       <c:when test="${equipaje.excedido}">
+       <tr class="table-active">
+       </c:when>
+       <c:otherwise>
         <tr>
+       </c:otherwise>
+        </c:choose>
          <td>${equipaje.id}</td>
           <td>${equipaje.id_vuelo}</td>
           <td>${equipaje.pasajero}</td>
@@ -119,10 +127,8 @@
 				<div class="modal-body">Pedido de Break para múltiples
 					propósitos, Carga de datos, Baño, descanso</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary"
-						data-dismiss="modal">Fin Break</button>
-					<a href="index.jsp" type="button"
-					class="btn btn-primary"> LogOut </a>
+					<a href="pedir_break" type="button"
+					class="btn btn-primary">Comenzar break</a>
 				</div>
 			</div>
 		</div>

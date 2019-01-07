@@ -39,7 +39,7 @@ public class FacturacionDAOImpl implements FacturacionDAO{
 				miFacturacion.setCosto(rs.getInt(4));
 				miFacturacion.setMedio_pago(rs.getString(5));
 				miFacturacion.setNumero_tarjeta(rs.getString(6));
-				miFacturacion.setNum_seguridad(7);
+				miFacturacion.setNum_seguridad(rs.getInt(7));
 				
 				misFacturaciones.add(miFacturacion);
 				

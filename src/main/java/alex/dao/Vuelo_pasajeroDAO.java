@@ -15,4 +15,6 @@ public interface Vuelo_pasajeroDAO {
 	
 	int deleteVueloPasajeroByIDPasajero(int id_vuelo, int id_pasajero);
 	
+	int updatePesoTotalVuelopasajero(Vuelo_pasajero vueloPasajero);
+	
 }

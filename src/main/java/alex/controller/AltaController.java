@@ -89,11 +89,11 @@ public class AltaController {
 		
 		serviceVueloPasajero.create(miVueloPasajero);
 		
-		int peso_int = Integer.parseInt(peso);
+		double peso_double = Double.parseDouble(peso);
 		miEquiVueloPasajero.setDescripcion(equipaje);//****************
 		miEquiVueloPasajero.setId_pasajero(miPasajero.getId());
 		miEquiVueloPasajero.setId_vuelo(id_vuelo_int);
-		miEquiVueloPasajero.setPeso(peso_int);
+		miEquiVueloPasajero.setPeso(peso_double);
 		
 		int id_equipaje = 0;
 		List<Equipaje_vuelo_pasajero> misEquipajes = equi_vuelo_service.getEquipajes();

@@ -6,8 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Psajero por DNI</title>
-
+<title>Facturacion Lista</title>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
 <script
@@ -23,6 +22,7 @@
 <link href="${aloneCSS}" rel="stylesheet" />
 <spring:url value="/resources/js/index.js" var="aloneJS" />
 <link href="${aloneJS}" rel="stylesheet" />
+
 
 </head>
 <body>
@@ -71,22 +71,21 @@
 					</div>
 				</nav>
 </div>
- 
- <section>
-  <h3><c:out value="${pasajero.nombre}"></c:out></h3>
-    <h3><c:out value="${pasajero.dni}"></c:out></h3>
+  <section>
   <!--for demo wrap-->
-  <h1>Vuelos reservados por ${pasajero.dni}</h1>
+  <h1>Listado de facturaciones</h1>
+  <h3>${exito}</h3>
   <div class="tbl-header">
     <table cellpadding="0" cellspacing="0" border="0">
-   
       <thead>
         <tr>
-          <th>Vuelo ID</th>
-          <th>Fecha</th>
-          <th>Origen</th>
+          <th>ID</th>
+          <th>Apellido y nombre</th>
           <th>Destino</th>
-          <th>Avion</th>
+          <th>Costo US$</th>
+          <th>Medio de pago</th>
+          <th>Num Tarjeta</th>
+          <th>Num Seguridad</th>
         </tr>
       </thead>
     </table>
@@ -94,21 +93,24 @@
   <div class="tbl-content">
     <table cellpadding="0" cellspacing="0" border="0">
       <tbody>
-      <c:forEach items="${vuelos}" var="vuelo">
+      <c:forEach items="${facturaciones}" var="facturacion">
         <tr>
-         <td>${vuelo.id}</td>
-          <td>${vuelo.fecha}</td>
-           <td>${vuelo.ciudad_origen}</td>
-          <td>${vuelo.ciudad_destino}</td>
-           <td>${vuelo.avion}</td>
+         <td>${facturacion.id}</td>
+          <td>${facturacion.nombre_yapel}</td>
+          <td>${facturacion.destino}</td>
+          <td>${facturacion.costo}</td>
+          <td>${facturacion.medio_pago}</td>
+          <td>${facturacion.numero_tarjeta}</td>
+          <td>${facturacion.num_seguridad}</td>
+          <td> <a href="eliminar_facturacion?facturacion_id=${facturacion.id}" class="btn btn-info" name="facturacion_id" role="button">Eliminar</a></td>
         </tr>
        </c:forEach>
       </tbody>
     </table>
   </div>
 </section>
-		
-		<!-- Modal -->
+
+<!-- Modal -->
 	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
 		aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
@@ -129,7 +131,6 @@
 			</div>
 		</div>
 	</div>
-		
 
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 

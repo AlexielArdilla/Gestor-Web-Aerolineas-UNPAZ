@@ -46,4 +46,10 @@ public class Vuelo_pasajeroServiceImpl implements Vuelo_pasajeroService{
 		return dao.deleteVueloPasajeroByIDPasajero(id_vuelo, id_pasajero);
 	}
 
+	@Override
+	public int updatePesoTotalVuelopasajero(Vuelo_pasajero vueloPasajero) {
+		
+		return dao.updatePesoTotalVuelopasajero(vueloPasajero);
+	}
+
 }

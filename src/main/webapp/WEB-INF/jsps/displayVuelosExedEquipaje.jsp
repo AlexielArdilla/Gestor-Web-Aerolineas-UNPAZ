@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Psajero por DNI</title>
+<title>Ver vuelos</title>
 
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
@@ -62,7 +62,7 @@
 							<li class="nav-item active"><a class="nav-link" href="getVuelosExdEquipaje">Equipaje extra
 									<span class="sr-only">(current)</span>
 							</a></li>
-							<!-- Button trigger modal -->
+								<!-- Button trigger modal -->
 							<button type="button" class="btn btn-primary" data-toggle="modal"
 								data-target="#exampleModal">Coffee Break</button>
 
@@ -71,22 +71,18 @@
 					</div>
 				</nav>
 </div>
- 
- <section>
-  <h3><c:out value="${pasajero.nombre}"></c:out></h3>
-    <h3><c:out value="${pasajero.dni}"></c:out></h3>
+  <section>
   <!--for demo wrap-->
-  <h1>Vuelos reservados por ${pasajero.dni}</h1>
+  <h1>Listado de Peso total por id vuelo</h1>
+  <h3>En gris vuelos excedidos de peso MAX 100000KG</h3>
   <div class="tbl-header">
     <table cellpadding="0" cellspacing="0" border="0">
-   
       <thead>
         <tr>
-          <th>Vuelo ID</th>
-          <th>Fecha</th>
-          <th>Origen</th>
-          <th>Destino</th>
-          <th>Avion</th>
+          <th>ID pasajero</th>
+          <th>ID Vuelo</th>
+          <th>Peso total equipaje</th>
+        
         </tr>
       </thead>
     </table>
@@ -94,21 +90,26 @@
   <div class="tbl-content">
     <table cellpadding="0" cellspacing="0" border="0">
       <tbody>
-      <c:forEach items="${vuelos}" var="vuelo">
+      <c:forEach items="${vuelosPasajero}" var="vueloP">
+       <c:choose >
+       <c:when test="${vueloP.excedido}">
+       <tr class="table-active">
+       </c:when>
+       <c:otherwise>
         <tr>
-         <td>${vuelo.id}</td>
-          <td>${vuelo.fecha}</td>
-           <td>${vuelo.ciudad_origen}</td>
-          <td>${vuelo.ciudad_destino}</td>
-           <td>${vuelo.avion}</td>
+       </c:otherwise>
+        </c:choose>
+         <td>${vueloP.id_pasajero}</td>
+          <td>${vueloP.id_vuelo}</td>
+          <td>${vueloP.peso_total_equipaje}</td>
         </tr>
        </c:forEach>
       </tbody>
     </table>
   </div>
 </section>
-		
-		<!-- Modal -->
+
+<!-- Modal -->
 	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
 		aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
@@ -129,7 +130,6 @@
 			</div>
 		</div>
 	</div>
-		
 
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 

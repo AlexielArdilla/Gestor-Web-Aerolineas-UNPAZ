@@ -34,7 +34,7 @@ public class Vuelo_pasajeroDAOImpl implements Vuelo_pasajeroDAO{
 			r= ps.executeUpdate();
 			
 			if (r > 0) {
-				System.out.println("Create exitoso");
+				System.out.println("Create exitoso Buenisimoooo!!!");
 			}else{
 				
 				System.out.println("Algo ha fallado!!!");
@@ -166,6 +166,40 @@ public class Vuelo_pasajeroDAOImpl implements Vuelo_pasajeroDAO{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		return r;
+	}
+
+	@Override
+	public int updatePesoTotalVuelopasajero(Vuelo_pasajero vueloPasajero) {
+	
+		Connection con = null;
+		PreparedStatement ps = null;
+		String sql = "UPDATE `vuelo_pasajero` SET `PESO_TOTAL_EQUIPAJE`= ? WHERE `ID_VUELO` = ? AND `ID_PASAJERO` = ?";
+		int r = 0;
+		
+		try {
+			con = MyConnection.getConnection();
+			ps = con.prepareStatement(sql);
+			ps.setDouble(1, vueloPasajero.getPeso_total_equipaje());
+			ps.setInt(2, vueloPasajero.getId_vuelo());
+			ps.setInt(3, vueloPasajero.getId_pasajero());
+			
+			r= ps.executeUpdate();
+			
+			if (r > 0) {
+				System.out.println("Create exitoso Buenisimoooo!!!");
+			}else{
+				
+				System.out.println("Algo ha fallado!!!");
+				
+			}
+			
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		
 		
 		return r;
 	}

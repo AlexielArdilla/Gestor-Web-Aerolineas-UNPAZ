@@ -14,5 +14,6 @@ public interface Vuelo_pasajeroService {
 	
 	int deleteVueloPasajeroByIDPasajero(int id_vuelo, int id_pasajero);
 	
+	int updatePesoTotalVuelopasajero(Vuelo_pasajero vueloPasajero);
 	
 }

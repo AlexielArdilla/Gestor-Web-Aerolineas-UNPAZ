@@ -34,6 +34,22 @@ public class EquipajeController {
 	public String dameEquipajes(ModelMap model){
 		
 		List<Equipaje> misEquipajes = service.getEquipajes();
+		int max_cantidad_equipaje_KG = 100;
+		
+		for(Equipaje equipaje: misEquipajes){
+			
+			if(equipaje.getPeso()>max_cantidad_equipaje_KG){
+				
+				equipaje.setExcedido(true);
+				
+			}else{
+				
+				equipaje.setExcedido(false);
+				
+			}
+			
+		}
+		
 		model.addAttribute("equipajes",misEquipajes);
 		
 		return "displayEquipajes"; 

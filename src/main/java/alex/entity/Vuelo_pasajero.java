@@ -12,6 +12,7 @@ public class Vuelo_pasajero {
 	private int id_pasajero;
 	private int id_vuelo;
 	private double peso_total_equipaje;
+	private boolean excedido;
 	
 	public int getId_pasajero() {
 		return id_pasajero;
@@ -32,6 +33,12 @@ public class Vuelo_pasajero {
 		this.peso_total_equipaje = peso_total_equipaje;
 	}
 	
+	public boolean isExcedido() {
+		return excedido;
+	}
+	public void setExcedido(boolean excedido) {
+		this.excedido = excedido;
+	}
 	@Override
 	public String toString() {
 		return "Vuelo_pasajero [id_pasajero=" + id_pasajero + ", id_vuelo=" + id_vuelo + ", peso_total_equipaje="
