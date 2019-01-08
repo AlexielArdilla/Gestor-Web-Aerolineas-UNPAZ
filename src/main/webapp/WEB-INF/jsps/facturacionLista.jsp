@@ -86,6 +86,7 @@
           <th>Medio de pago</th>
           <th>Num Tarjeta</th>
           <th>Num Seguridad</th>
+          <th>Borrar</th>
         </tr>
       </thead>
     </table>
