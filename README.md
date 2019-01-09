@@ -1,4 +1,5 @@
 # Gestor-Web-Aerolineas-UNPAZ
-Dynamic Web Project made in JavaEE Spring, FrontEnd made on Bootstrap, MySQL Database, 
-JPA JDBC, SpringMVC Architecture, Maven project. 
+Dynamic web project hecho en JavaEE, frontEnd en Bootstrap, base de datos MySQL, arquitectura SpringMVC, proyecto Maven. Permite gestionar la base de datos de una Aerolinea ficticia: control de facturación, gestión de pasajeros, equipajes, etcétera.
+
+Ver en youtube: https://www.youtube.com/watch?v=WRug5sJ3NmQ
 
