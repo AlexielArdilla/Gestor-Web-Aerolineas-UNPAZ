@@ -53,7 +53,7 @@ function confirmarCrear() {
 							<li class="nav-item active"><a class="nav-link" href="panel">ABM Vuelos
 									<span class="sr-only">(current)</span>
 							</a></li>
-							<li class="nav-item"><a class="nav-link" href="index.jsp">Log-out</a></li>
+							<li class="nav-item"><a class="nav-link" href="logOut">Log-out</a></li>
 							<li class="nav-item dropdown"><a
 								class="nav-link dropdown-toggle" href="http://example.com"
 								id="navbarDropdownMenuLink" data-toggle="dropdown">Aviones y vuelos</a>

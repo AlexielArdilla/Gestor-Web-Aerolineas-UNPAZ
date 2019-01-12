@@ -3,7 +3,10 @@ package alex.controller;
 import java.util.LinkedList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +19,7 @@ import alex.services.VueloService;
 import alex.services.Vuelo_pasajeroService;
 
 @Controller
+@Scope("session")
 public class VueloController {
 	
 	@Autowired
@@ -26,17 +30,25 @@ public class VueloController {
 	Equipaje_vuelo_pasajeroService serviceEquipajeVueloPasajero;
 	
 	@RequestMapping("getVuelos")
-	public String verVuelos(ModelMap model){
+	public String verVuelos(ModelMap model, HttpServletRequest request){
+		
+		if(request.getSession(false)!= null&&request.getSession().getAttribute("user")!=null){
 		
 		List<Vuelo> vuelos = service.getVuelos();
 		model.addAttribute("vuelos", vuelos);
 		
-		return "displayVuelos";
+		return "displayVuelos";}else{
+			
+			return "sesionExpiro";
+			
+		}
 	}
 	
 	@RequestMapping("getVuelosExdEquipaje")
-	public String verVuelosExdEquipaje(ModelMap model){
+	public String verVuelosExdEquipaje(ModelMap model, HttpServletRequest request){
 		
+		if(request.getSession(false)!= null&&request.getSession().getAttribute("user")!=null){
+			
 		List<Vuelo> vuelos = service.getVuelos();
 		model.addAttribute("vuelos", vuelos);
 		
@@ -82,7 +94,11 @@ public class VueloController {
 		
 		model.addAttribute("vuelosPasajero", misVuelosPasajero);
 		
-		return "displayVuelosExedEquipaje";
+		return "displayVuelosExedEquipaje";}else{
+			
+			return "sesionExpiro";
+			
+		}
 	}
 	
 	

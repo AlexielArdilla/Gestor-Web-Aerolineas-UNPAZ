@@ -2,7 +2,10 @@ package alex.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +22,7 @@ import alex.services.VueloService;
 import alex.services.Vuelo_pasajeroService;
 
 @Controller
+@Scope("session")
 public class BajaController {
 	
 	@Autowired
@@ -33,15 +37,23 @@ public class BajaController {
 	Vuelo_pasajeroService serviceVueloPasajero;
 	
 	@RequestMapping("mostrar_baja")
-	public String mostrarBaja(ModelMap model){
+	public String mostrarBaja(ModelMap model, HttpServletRequest request){
 		
+		if(request.getSession(false)!= null&&request.getSession().getAttribute("user")!=null){
 		return "baja";
+		
+		}else{
+			
+			return "sesionExpiro";
+		}
 		
 	}
 	
 	@RequestMapping("baja_reserva")
-	public String mostrarBajaConDatos(@RequestParam("dni") String dni, ModelMap model){
+	public String mostrarBajaConDatos(@RequestParam("dni") String dni, ModelMap model, HttpServletRequest request){
 		
+		if(request.getSession(false)!= null&&request.getSession().getAttribute("user")!=null){
+			
 		int dni_int = Integer.parseInt(dni);
 		List<Vuelo> misVuelos = serviceVuelo.findVueloByDNI(dni_int);
 		Pasajero miPasajero = servicePasajero.findByDNI(dni_int);
@@ -50,11 +62,19 @@ public class BajaController {
 		model.addAttribute("pasajero", miPasajero);
 		
 		return "bajaPaso2";
+		
+		}else{
+			
+			return "sesionExpiro";
+			
+		}
 	}
 	
 	@RequestMapping(value = "eliminar_pasajero", method = RequestMethod.GET)
-	public String eliminarVuelo(@RequestParam("pasajero_id") String pasajero_id,ModelMap model) {
+	public String eliminarVuelo(@RequestParam("pasajero_id") String pasajero_id,ModelMap model, HttpServletRequest request) {
 		
+		if(request.getSession(false)!= null&&request.getSession().getAttribute("user")!=null){
+			
 		int id_pasajero_int = Integer.parseInt(pasajero_id);
 		
 		servicePasajero.deleteById(id_pasajero_int);//Borra pasajero
@@ -79,6 +99,12 @@ public class BajaController {
 
 		model.addAttribute("exito", exito);
 		return "baja";
+		
+		}else{
+			
+			return "sesionExpiro";
+			
+		}
 	}
 
 }

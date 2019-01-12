@@ -3,8 +3,10 @@ package alex.controller;
 import java.util.List;
 
 import javax.persistence.criteria.CriteriaBuilder.In;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -26,6 +28,7 @@ import alex.services.VueloService;
 import alex.services.Vuelo_pasajeroService;
 
 @Controller
+@Scope("session")
 public class AltaController {
 	
 	@Autowired
@@ -40,18 +43,26 @@ public class AltaController {
     private FacturacionService serviceFacturacion;
     
 	@RequestMapping("altaVuelo")
-	public String showAltaVuelo(ModelMap model) {
+	public String showAltaVuelo(ModelMap model, HttpServletRequest request) {
+		
+		if(request.getSession(false)!= null&&request.getSession().getAttribute("user")!=null){
 		
 		List<Vuelo> misVuelos = serviceVuelo.getVuelos();
 		model.addAttribute("vuelos", misVuelos);
 		
-		return "alta";
+		return "alta";}else{
+			
+			return "sesionExpiro";
+			
+		}
 	}
 	
 	@RequestMapping(value ="altaPaso2", method = RequestMethod.GET)
 	public String showAltaPaso2(@RequestParam("nomApel") String nomApel,@RequestParam("dni") String dni 
 			,@RequestParam("edad")String edad,@RequestParam("vuelo_elegido") String id_vuelo,@RequestParam("equipaje") String equipaje,
-			@RequestParam("peso") String peso, ModelMap model) {
+			@RequestParam("peso") String peso, ModelMap model, HttpServletRequest request) {
+		
+		if(request.getSession(false)!= null&&request.getSession().getAttribute("user")!=null){
 		
 		int dni_int = Integer.parseInt(dni);
 		
@@ -118,27 +129,39 @@ public class AltaController {
 		model.addAttribute("equipajeVueloPasajero", miEquiVueloPasajero);
 		model.addAttribute("vueloPasajero", miVueloPasajero);
 		
-		return "altaPaso2";
+		return "altaPaso2";}else{
+			
+			return "sesionExpiro";
+			
+		}
 	}
 
 	@RequestMapping(value ="cancelar_facturacion", method = RequestMethod.GET)
     public String cancelarFacturacion(@RequestParam("idPasajero") int idPasajero, @RequestParam("idVueloPasajero") int idVueloPasajero,
-    		@RequestParam("idEquiVueloPasajero")int idEquiVueloPasajero, @RequestParam("idVuelo") int idVuelo){
+    		@RequestParam("idEquiVueloPasajero")int idEquiVueloPasajero, 
+    		@RequestParam("idVuelo") int idVuelo, HttpServletRequest request){
 		
+		if(request.getSession(false)!= null&&request.getSession().getAttribute("user")!=null){
 		servicePasajero.deleteById(idPasajero);
 		serviceVueloPasajero.deleteVueloPasajeroByIDPasajero(idVuelo, idVueloPasajero);
 		equi_vuelo_service.deleteEquipajeByID(idEquiVueloPasajero);
 		
 		
-		return "panel";
+		return "panel";}else{
+			
+			return "sesionExpiro";
+			
+		}
 	}
 	
 	@RequestMapping("facturacion")
 	public String facturacion(@RequestParam("nombre") String nombre, @RequestParam("origen") String origen,
 			@RequestParam("destino") String destino, @RequestParam("costo") String costo,
 			@RequestParam("tarjeta") String tarjeta,@RequestParam("numTarjeta") String numTarjeta,
-			@RequestParam("numSeguridad") String numSeguridad,ModelMap model){
+			@RequestParam("numSeguridad") String numSeguridad,ModelMap model, HttpServletRequest request){
 		
+		if(request.getSession(false)!= null&&request.getSession().getAttribute("user")!=null){
+	
 		List<Facturacion> misFacturaciones = serviceFacturacion.getFacturaciones();
 		int ultima_id = 1;
 		
@@ -171,6 +194,10 @@ public class AltaController {
 		
 		model.addAttribute("Exito","Facturacion exitosa");
 		
-		return "panel";
+		return "panel";}else{
+			
+			return "sesionExpiro";
+			
+		}
 	}
 }
