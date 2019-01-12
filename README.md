@@ -1,3 +1,5 @@
 # Gestor-Web-Aerolineas-UNPAZ
-Es básicamente un ABM con interfaz web en JavaEE, con Bootstrap, la base
-es MySQL y tiene para la arquitectura Spring MVC
+Dynamic web project hecho en JavaEE, frontEnd en Bootstrap, base de datos MySQL, arquitectura SpringMVC, proyecto Maven. Permite gestionar la base de datos de una Aerolinea ficticia: control de facturación, gestión de pasajeros, equipajes, etcétera.
+
+Ver en youtube: https://www.youtube.com/watch?v=WRug5sJ3NmQ
+
