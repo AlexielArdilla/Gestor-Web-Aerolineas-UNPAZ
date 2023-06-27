@@ -7,10 +7,9 @@ __Dynamic web project hecho en JavaEE, frontEnd en Bootstrap, base de datos MySQ
 
 
 ## Autor: ✒️
-<div align="center">
 [Alejandro G. Vera](https://linkedin.com/in/alejandro-gonzalo-vera/)
 
   <br/></br>
 # Enjoy!
-</div>
+
 
